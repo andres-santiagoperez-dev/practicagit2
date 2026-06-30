@@ -33,3 +33,31 @@ let ciudades =[
         }
     }
 ];
+
+
+//VARIABLES
+let salidaTabla = document.getElementById("salidaTabla");
+let contadorTabla=1;
+
+salidaTabla.innerHTML="";
+ciudades.forEach(ciudad=>{
+    let sitiosInteres ="";
+    for(let [clave,valor] of Object.entries(ciudad.sitiosDeInteres))
+    {
+        sitiosInteres+=valor+" - ";
+    }
+    sitiosInteres=sitiosInteres.substring(0, sitiosInteres.length - 2);
+    salidaTabla.innerHTML+=
+    `
+    <tr>
+        <th scope="row">${contadorTabla}</th>
+        <td>${ciudad.nombre}</td>
+        <td>${ciudad.numeroHabitantes}</td>
+        <td>${ciudad.metrosSobreNivelMar}</td>
+        <td>${ciudad.coordenadas}</td>
+        <td>${sitiosInteres}</td>
+    </tr>
+    
+    `
+    contadorTabla++;
+})
